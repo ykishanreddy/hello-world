@@ -1,14 +1,21 @@
 apiVersion: apps/v1
-kind: Pod
+kind: Deployment
 metadata:
-  name: nodehelloworld.example.com
-  labels:
-    app: helloworld
+  name: helloworld-deployment
 spec:
-  containers:
-  - name: k8s-demo
-    image: httpd
-    ports:
-    - name: nodejs-port
-      containerPort: 3000
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: k8s-demo
+        image: httpd:latest
+        ports:
+        - name: nodejs-port
+          containerPort: 3000
 
