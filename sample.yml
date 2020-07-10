@@ -13,5 +13,5 @@ spec:
       - name: sample-k8s-app-container
         image: httpd:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
       
